@@ -163,7 +163,9 @@ Return value          (type int)
     }
 
     /* IMB 3.1 << */
-    IMB_show_selections(&C_INFO, BList, &argc, &argv);
+    if (NULL != getenv("IMB_SHOW_HEADER")) {
+        IMB_show_selections(&C_INFO, BList, &argc, &argv);
+    }
     /* >> IMB 3.1  */
 
     /* LOOP OVER INDIVIDUAL BENCHMARKS */

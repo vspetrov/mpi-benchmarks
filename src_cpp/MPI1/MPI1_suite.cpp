@@ -686,7 +686,7 @@ template <> bool BenchmarkSuite<BS_MPI1>::prepare(const args_parser &parser, con
     IMB_basic_input(&c_info, &BList, &ITERATIONS, &argc, (char ***)argv, &glob.NP_min);
 #endif    
 
-    if (c_info.w_rank == 0 ) {
+    if (c_info.w_rank == 0 && NULL != getenv("IMB_SHOW_HEADER") ) {
         IMB_general_info();
         fprintf(unit,"\n\n# Calling sequence was: \n\n");
         string cmd_line;
